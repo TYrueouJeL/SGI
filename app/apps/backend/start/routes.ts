@@ -34,4 +34,4 @@ router
       .as('profile')
       .use(middleware.auth())
   })
-  .prefix('/api/v1')
+  .prefix('/api')

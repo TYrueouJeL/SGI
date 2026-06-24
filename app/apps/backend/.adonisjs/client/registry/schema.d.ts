@@ -9,7 +9,7 @@ export type ParamValue = string | number | bigint | boolean
 export interface Registry {
   'auth.new_account.store': {
     methods: ["POST"]
-    pattern: '/api/v1/auth/signup'
+    pattern: '/api/auth/signup'
     types: {
       body: ExtractBody<InferInput<(typeof import('#validators/user').signupValidator)>>
       paramsTuple: []
@@ -21,7 +21,7 @@ export interface Registry {
   }
   'auth.access_tokens.store': {
     methods: ["POST"]
-    pattern: '/api/v1/auth/login'
+    pattern: '/api/auth/login'
     types: {
       body: ExtractBody<InferInput<(typeof import('#validators/user').loginValidator)>>
       paramsTuple: []
@@ -33,7 +33,7 @@ export interface Registry {
   }
   'profile.profile.show': {
     methods: ["GET","HEAD"]
-    pattern: '/api/v1/account/profile'
+    pattern: '/api/account/profile'
     types: {
       body: {}
       paramsTuple: []
@@ -45,7 +45,7 @@ export interface Registry {
   }
   'profile.access_tokens.destroy': {
     methods: ["POST"]
-    pattern: '/api/v1/account/logout'
+    pattern: '/api/account/logout'
     types: {
       body: {}
       paramsTuple: []
