@@ -15,4 +15,9 @@ export abstract class BaseService<Model extends LucidModel> {
         const model = await this.model.findOrFail(modelId)
         return model.delete()
     }
+
+    async count() {
+        const result = await this.model.query().count('* as total').first()
+        return Number(result?.$extras.total ?? 0)
+    }
 }

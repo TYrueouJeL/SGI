@@ -44,5 +44,12 @@ router
       })
       .prefix('product')
       .use(middleware.auth())
+
+    router
+      .group(() => {
+        router.get('/', [controllers.Stats, 'index'])
+      })
+      .prefix('stats')
+      .use(middleware.auth())
   })
   .prefix('/api')
