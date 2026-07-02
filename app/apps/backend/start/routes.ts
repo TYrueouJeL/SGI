@@ -47,6 +47,17 @@ router
 
     router
       .group(() => {
+        router.get('/', [controllers.Categories, 'index'])
+        router.get('/:id', [controllers.Categories, 'show'])
+        router.delete('/:id', [controllers.Categories, 'destroy'])
+        router.post('/', [controllers.Categories, 'store'])
+        router.put('/:id', [controllers.Categories, 'update'])
+      })
+      .prefix('category')
+      .use(middleware.auth())
+
+    router
+      .group(() => {
         router.get('/', [controllers.Stats, 'index'])
       })
       .prefix('stats')
